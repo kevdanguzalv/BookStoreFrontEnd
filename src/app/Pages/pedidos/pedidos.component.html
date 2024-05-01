@@ -1,0 +1,87 @@
+<br>
+<div class="row">
+  <div class="demo-button-container">
+      <form class="example-form"  [formGroup]="DniCliente">
+          <mat-form-field class="example-full-width Nombres" appearance="outline">
+            <mat-label>Id CLiente</mat-label>
+            <input type="text" matInput formControlName="id" />
+          </mat-form-field>
+          <button mat-button  color="primary"   (click)="BuscarCliente(DniCliente.value)" cdkFocusInitial>Buscar</button>
+        </form>
+  </div>
+  <div class="demo-button-container">
+    <form class="example-form" [formGroup]="DatosCLiente">
+      <mat-form-field class="example-full-width Id" appearance="outline">
+        <mat-label>Id</mat-label>
+        <input type="text" matInput formControlName="id" />
+      </mat-form-field>
+      <mat-form-field class="example-full-width Nombres" appearance="outline">
+        <mat-label>Nombres</mat-label>
+        <input type="text" matInput formControlName="nombres" />
+      </mat-form-field>
+      <mat-form-field class="Apellidos" appearance="outline">
+        <mat-label>Apellidos</mat-label>
+        <input type="text" matInput formControlName="apellidos"/>
+      </mat-form-field>
+      <mat-form-field class="DNI" appearance="outline">
+        <mat-label>DNI</mat-label>
+        <input type="number" matInput  formControlName="dni"/>
+      </mat-form-field>
+      <mat-form-field class="Edad" appearance="outline">
+        <mat-label>Edad</mat-label>
+        <input type="number" matInput formControlName="edad" />
+      </mat-form-field>
+    </form>
+  </div>
+</div>
+
+
+ <br>
+<div class="demo-button-container">
+    <form class="example-form" [formGroup]="IdLibro">
+        <mat-form-field class="example-full-width libro" appearance="outline">
+          <mat-label>Id Libro</mat-label>
+          <input type="text" matInput formControlName="IdLibro"  />
+        </mat-form-field>
+        <button mat-button  color="primary"  (click)="BuscarLibro(IdLibro.value)"   cdkFocusInitial>Buscar</button>
+        <button mat-button  color="accent" (click)="GuardarPedido()"   cdkFocusInitial>Guardar</button>
+      </form>
+</div>
+<br>
+<table mat-table  [dataSource]="libros" class="mat-elevation-z8 demo-table">
+  <!-- Position Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>Id.</th>
+    <td mat-cell *matCellDef="let libro">{{ libro.id }}</td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="nombres">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let libro">{{ libro.nombres }}</td>
+  </ng-container>
+
+  <!-- Autor Column -->
+  <ng-container matColumnDef="autor">
+    <th mat-header-cell *matHeaderCellDef>Autor</th>
+    <td mat-cell *matCellDef="let libro">{{ libro.autor }}</td>
+  </ng-container>
+
+  <!-- ISBN Column -->
+  <ng-container matColumnDef="isbn">
+    <th mat-header-cell *matHeaderCellDef>ISBN</th>
+    <td mat-cell *matCellDef="let libro">{{ libro.isbn }}</td>
+  </ng-container>
+
+  <!-- Status Column -->
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef>Status</th>
+    <td mat-cell *matCellDef="let libro">{{ libro.status ? 'Active' : 'Inactive' }}</td>
+  </ng-container>
+  
+  <!-- Table Rows -->
+  <tr mat-header-row *matHeaderRowDef="['id', 'nombres', 'autor', 'isbn', 'status']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['id', 'nombres', 'autor', 'isbn', 'status'];"></tr>
+</table>
+
+

@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>Agregar un Libro</h2>
+<mat-dialog-content class="mat-typography">
+  
+  <form class="example-form" [formGroup]="AddLibroForm">
+    <mat-form-field class="example-full-width Nombres" appearance="outline">
+      <mat-label>Nombres</mat-label>
+      <input type="text" matInput formControlName="nombres" />
+    </mat-form-field>
+    <mat-form-field class="Autor" appearance="outline">
+      <mat-label>Autor</mat-label>
+      <input type="text" matInput formControlName="autor"/>
+    </mat-form-field>
+    <mat-form-field class="isnb" appearance="outline">
+      <mat-label>ISBN</mat-label>
+      <input type="text" matInput  formControlName="isbn"/>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" (click)="AddLibro()" cdkFocusInitial>Crear</button>
+</mat-dialog-actions>

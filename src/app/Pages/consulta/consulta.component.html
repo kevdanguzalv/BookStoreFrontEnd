@@ -1,0 +1,52 @@
+<br>
+<div class="demo-button-container">
+    <form class="example-form"  [formGroup]="buscarLibro">
+        <mat-form-field class="example-full-width Nombres" appearance="outline">
+          <mat-label>DNI</mat-label>
+          <input type="text" matInput formControlName="dni" />
+        </mat-form-field>
+        <button mat-button  color="primary"   (click)="BuscarPedido()" cdkFocusInitial>Buscar</button>
+      </form>
+</div>
+<br>
+  <table mat-table  class="mat-elevation-z8 demo-table" [dataSource]="listPedidosRequest">
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="pedido">
+      <th mat-header-cell *matHeaderCellDef>Pedido</th>
+      <td mat-cell *matCellDef="let listPedidosRequest">{{ listPedidosRequest.pedido }}</td>
+    </ng-container>
+  
+    <!-- Autor Column -->
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef>Nombre</th>
+      <td mat-cell *matCellDef="let listPedidosRequest">{{ listPedidosRequest.nombre }}</td>
+    </ng-container>
+  
+    <!-- ISBN Column -->
+    <ng-container matColumnDef="apellidos">
+      <th mat-header-cell *matHeaderCellDef>Apellidos</th>
+      <td mat-cell *matCellDef="let listPedidosRequest">{{ listPedidosRequest.apellidos }}</td>
+    </ng-container>
+        <!-- ISBN Column -->
+        <ng-container matColumnDef="libro">
+            <th mat-header-cell *matHeaderCellDef>Libro</th>
+            <td mat-cell *matCellDef="let listPedidosRequest">{{ listPedidosRequest.libro }}</td>
+          </ng-container>
+  
+    <!-- Status Column -->
+    <ng-container matColumnDef="autor">
+      <th mat-header-cell *matHeaderCellDef>Autor</th>
+      <td mat-cell *matCellDef="let listPedidosRequest">{{ listPedidosRequest.autor}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="isbn">
+        <th mat-header-cell *matHeaderCellDef>ISBN</th>
+        <td mat-cell *matCellDef="let listPedidosRequest">{{ listPedidosRequest.isbn}}</td>
+      </ng-container>
+  
+
+    <!-- Table Rows -->
+    <tr mat-header-row *matHeaderRowDef="['pedido', 'nombre', 'apellidos', 'libro','autor', 'isbn']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['pedido', 'nombre', 'apellidos', 'libro','autor', 'isbn'];"></tr>
+  </table>

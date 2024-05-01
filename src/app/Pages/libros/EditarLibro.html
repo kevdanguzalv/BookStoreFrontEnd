@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>Editar Datos</h2>
+<mat-dialog-content class="mat-typography">
+  
+  <form class="example-form" [formGroup]="EditarLibroForm">
+    <mat-form-field class="example-full-width Id" appearance="outline">
+      <mat-label>Id</mat-label>
+      <input type="text" matInput formControlName="id" />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width Nombres" appearance="outline">
+      <mat-label>Nombres</mat-label>
+      <input type="text" matInput formControlName="nombres" />
+    </mat-form-field>
+
+    <mat-form-field class="Autor" appearance="outline">
+      <mat-label>Autor</mat-label>
+      <input type="text" matInput formControlName="autor"/>
+    </mat-form-field>
+
+    <mat-form-field class="ISBN" appearance="outline">
+      <mat-label>ISBN</mat-label>
+      <input type="text" matInput  formControlName="isbn"/>
+    </mat-form-field>
+
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cerrar</button>
+  <button mat-button [mat-dialog-close]="true" color="primary"  (click)="EditarLibro()" cdkFocusInitial>Guardar</button>
+</mat-dialog-actions>

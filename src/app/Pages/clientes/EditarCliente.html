@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>Editar Datos</h2>
+<mat-dialog-content class="mat-typography">
+  
+  <form class="example-form" [formGroup]="EditarClienteForm">
+    <mat-form-field class="example-full-width Id" appearance="outline">
+      <mat-label>Id</mat-label>
+      <input type="text" matInput formControlName="id" />
+    </mat-form-field>
+    <mat-form-field class="example-full-width Nombres" appearance="outline">
+      <mat-label>Nombres</mat-label>
+      <input type="text" matInput formControlName="nombres" />
+    </mat-form-field>
+    <mat-form-field class="Apellidos" appearance="outline">
+      <mat-label>Apellidos</mat-label>
+      <input type="text" matInput formControlName="apellidos"/>
+    </mat-form-field>
+    <mat-form-field class="DNI" appearance="outline">
+      <mat-label>DNI</mat-label>
+      <input type="number" matInput  formControlName="dni"/>
+    </mat-form-field>
+    <mat-form-field class="Edad" appearance="outline">
+      <mat-label>Edad</mat-label>
+      <input type="number" matInput formControlName="edad" />
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cerrar</button>
+  <button mat-button [mat-dialog-close]="true" color="primary"  (click)="EditarCliente()" cdkFocusInitial>Guardar</button>
+</mat-dialog-actions>
